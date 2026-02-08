@@ -1,5 +1,10 @@
 import "../styles/contact.css";
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 export default function Contact() {
   return (
@@ -29,7 +34,28 @@ export default function Contact() {
               <FaPhoneAlt />
             </div>
             <h4>Phone</h4>
-            <p>+254 722 353 802</p>
+            <p>
+              <a href="tel:+254722353802">
+                +254 722 353 802
+              </a>
+            </p>
+          </div>
+
+          {/* WhatsApp */}
+          <div className="contact-item">
+            <div className="contact-icon">
+              <FaWhatsapp />
+            </div>
+            <h4>WhatsApp</h4>
+            <p>
+              <a
+                href="https://wa.me/254722353802"
+                target="_blank"
+                rel="noreferrer"
+              >
+                +254 722 353 802
+              </a>
+            </p>
           </div>
 
           {/* Email */}
@@ -38,7 +64,11 @@ export default function Contact() {
               <FaEnvelope />
             </div>
             <h4>Mail</h4>
-            <p>devabdi@gmail.com</p>
+            <p>
+              <a href="mailto:devabdi@gmail.com">
+                devabdi@gmail.com
+              </a>
+            </p>
           </div>
         </div>
 

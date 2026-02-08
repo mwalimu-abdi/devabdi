@@ -149,3 +149,55 @@
     color: #000;
   }
 }
+/* SIGNATURE LOGO */
+.logo {
+  font-family: "Pacifico", "Dancing Script", cursive;
+  font-size: 26px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #0f172a;
+  letter-spacing: 1px;
+}
+
+/* optional subtle hover */
+.logo:hover {
+  opacity: 0.85;
+}
+/* LOGO WRAPPER */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* LAPTOP ICON */
+.logo-icon {
+  font-size: 22px;
+  color: #ff7a18; /* orange accent */
+}
+
+/* LOGO TEXT */
+.logo-text {
+  font-family: "Pacifico", "Dancing Script", cursive;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #000;
+}
+
+/* DEV PART */
+.logo-dev {
+  color: #000;
+}
+
+/* ABDI PART */
+.logo-abdi {
+  color: #ff7a18;
+}
+
+/* SUBTLE HOVER */
+.logo:hover {
+  opacity: 0.85;
+}

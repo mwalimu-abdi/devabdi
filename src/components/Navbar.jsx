@@ -1,19 +1,47 @@
 import { useEffect, useRef, useState } from "react";
 import "../styles/navbar.css";
+import { FaLaptopCode } from "react-icons/fa";
+
+// ✅ IMPORT AUDIO FROM ASSETS (VITE SAFE)
+import clickOpen from "../assets/click.mp3";
+import clickClose from "../assets/click2.mp3";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
   const dropdownRef = useRef(null);
 
-  // 🔊 sound only for menu open / close
-  const playClick = () => {
-    const audio = new Audio("/sounds/click.mp3");
-    audio.play();
+  // 🔊 audio refs
+  const openSoundRef = useRef(null);
+  const closeSoundRef = useRef(null);
+
+  // preload audio ONCE
+  useEffect(() => {
+    openSoundRef.current = new Audio(clickOpen);
+    closeSoundRef.current = new Audio(clickClose);
+
+    openSoundRef.current.volume = 0.5;
+    closeSoundRef.current.volume = 0.5;
+  }, []);
+
+  const playOpenSound = () => {
+    if (!openSoundRef.current) return;
+    openSoundRef.current.currentTime = 0;
+    openSoundRef.current.play().catch(() => {});
+  };
+
+  const playCloseSound = () => {
+    if (!closeSoundRef.current) return;
+    closeSoundRef.current.currentTime = 0;
+    closeSoundRef.current.play().catch(() => {});
   };
 
   const toggleMenu = () => {
-    playClick();
+    if (!open) {
+      playOpenSound(); // opening
+    } else {
+      playCloseSound(); // closing
+    }
     setOpen((prev) => !prev);
   };
 
@@ -26,7 +54,7 @@ export default function Navbar() {
         !dropdownRef.current.contains(e.target) &&
         !e.target.closest(".menu-btn")
       ) {
-        playClick();
+        playCloseSound();
         setOpen(false);
       }
     };
@@ -36,9 +64,12 @@ export default function Navbar() {
       document.removeEventListener("mousedown", handleOutsideClick);
   }, [open]);
 
-  // smooth slow scroll (NO sound)
+  // smooth scroll (NO sound except close)
   const scrollToSection = (id) => {
-    setOpen(false);
+    if (open) {
+      playCloseSound();
+      setOpen(false);
+    }
 
     const target = document.getElementById(id);
     const navbar = document.querySelector(".navbar");
@@ -72,7 +103,7 @@ export default function Navbar() {
 
   // active section tracking
   useEffect(() => {
-    const sections = ["home", "about", "services", "contact"];
+    const sections = ["home", "about", "services", "contact", "testimonials"];
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -96,20 +127,33 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="nav-container">
+
         {/* LOGO */}
-        <div className="logo">DevAbdi</div>
+        <div className="logo" onClick={() => scrollToSection("home")}>
+          <span className="logo-icon">
+            <FaLaptopCode />
+          </span>
+          <span className="logo-text">
+            &lt;
+            <span className="logo-dev">Dev</span>
+            <span className="logo-abdi">Abdi</span>
+            /&gt;
+          </span>
+        </div>
 
         {/* DESKTOP NAV */}
         <nav className="nav-links">
-          {["home", "about", "services", "contact"].map((item) => (
-            <button
-              key={item}
-              className={active === item ? "active" : ""}
-              onClick={() => scrollToSection(item)}
-            >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
-            </button>
-          ))}
+          {["home", "about", "services", "contact", "testimonials"].map(
+            (item) => (
+              <button
+                key={item}
+                className={active === item ? "active" : ""}
+                onClick={() => scrollToSection(item)}
+              >
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </button>
+            )
+          )}
         </nav>
 
         {/* MOBILE MENU BUTTON */}
@@ -118,18 +162,20 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MOBILE DROPDOWN (FULL WIDTH, SMALL HEIGHT) */}
+      {/* MOBILE DROPDOWN */}
       {open && (
         <div className="mobile-dropdown" ref={dropdownRef}>
-          {["home", "about", "services", "contact"].map((item) => (
-            <button
-              key={item}
-              className={active === item ? "active" : ""}
-              onClick={() => scrollToSection(item)}
-            >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
-            </button>
-          ))}
+          {["home", "about", "services", "contact", "testimonials"].map(
+            (item) => (
+              <button
+                key={item}
+                className={active === item ? "active" : ""}
+                onClick={() => scrollToSection(item)}
+              >
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </button>
+            )
+          )}
         </div>
       )}
     </header>

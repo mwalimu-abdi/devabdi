@@ -31,8 +31,8 @@ body {
 
 /* TITLE (DESKTOP DEFAULT) */
 .home-title {
-  font-size: 72px;
-  font-weight: 800;
+  font-size: 52px;
+  font-weight: 700;
   line-height: 1.05;
   margin-bottom: 24px;
   color: #000;               /* 🔑 ALWAYS VISIBLE */
@@ -209,4 +209,197 @@ body {
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 16px 32px rgba(0,0,0,0.25);
+}
+/* HERO SLIDER */
+.hero-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* SLIDE TRACK */
+.hero-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* INDIVIDUAL SLIDE */
+.hero-slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-slide img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  object-fit: contain;
+}
+
+
+
+
+
+/* LABEL ANIMATION */
+@keyframes labelFade {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 6px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+/* HANDWRITTEN TYPING TEXT */
+.hero-handwriting {
+  font-family: "Pacifico", "Dancing Script", cursive;
+  font-size: 22px;
+  color: #0f172a;
+  margin-bottom: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* BLINKING CURSOR */
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+/* DEFAULT (mobile stays fast & smooth) */
+.hero-track {
+  transition: transform 0.6s ease-in-out;
+}
+
+/* DESKTOP ONLY – MUCH SLOWER SLIDE */
+@media (min-width: 1024px) {
+  .hero-track {
+    transition: transform 1.5s ease-in-out;
+  }
+}
+/* HERO SLIDER CONTAINER */
+.hero-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;   /* VERY IMPORTANT */
+}
+
+/* SLIDE TRACK */
+.hero-track {
+  display: flex;
+  width: 100%;
+  will-change: transform;
+}
+
+/* INDIVIDUAL SLIDE */
+.hero-slide {
+  flex: 0 0 100%;     /* LOCK EACH SLIDE TO FULL WIDTH */
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* IMAGE */
+.hero-slide img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* TRANSITION SPEED */
+.hero-track {
+  transition: transform 0.6s ease-in-out;
+}
+
+/* DESKTOP ONLY – SLOWER & SMOOTHER */
+@media (min-width: 1024px) {
+  .hero-track {
+    transition: transform 1.5s ease-in-out;
+  }
+}
+.hero-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  .hero-track {
+    transition: transform 1.5s ease-in-out;
+  }
+}
+
+.hero-track.no-transition {
+  transition: none !important;
+}
+.hero-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* IMAGE FADE CONTAINER */
+.hero-fade {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.4s ease;
+}
+
+.hero-fade.fade {
+  opacity: 0;
+}
+
+/* IMAGE */
+.hero-image {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* CURSOR */
+.cursor {
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+/* IMAGE FADE CONTAINER */
+.hero-fade {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* WHEN FADING */
+.hero-fade.fade {
+  opacity: 0;
+  transform: scale(0.97); /* subtle zoom-out */
+}
+
+/* IMAGE */
+.hero-image {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  object-fit: contain;
 }
