@@ -1,0 +1,99 @@
+/* =========================
+   ECOMMERCE HERO SHOWCASE
+   ========================= */
+
+.ecommerce-hero {
+  position: relative;
+  margin-top: 50px;
+  height: 220px;
+  width: 100%;
+}
+
+/* PRODUCT CARDS */
+.product-card {
+  position: absolute;
+  width: 160px;
+  height: 100px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* TYPES */
+.product-card.electronics {
+  top: 0;
+  left: 0;
+  animation-delay: 0s;
+}
+
+.product-card.footwear {
+  bottom: 0;
+  left: 120px;
+  animation-delay: 1.5s;
+}
+
+/* UI BADGES */
+.ui-badge {
+  position: absolute;
+  padding: 8px 14px;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 13px;
+  animation: pop 5s ease-in-out infinite;
+}
+
+.cart {
+  top: 40px;
+  right: 20px;
+}
+
+.checkout {
+  bottom: 30px;
+  right: 80px;
+  animation-delay: 1s;
+}
+
+.login {
+  top: 120px;
+  right: 140px;
+  animation-delay: 2s;
+}
+
+/* ANIMATIONS */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes pop {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .ecommerce-hero {
+    height: 260px;
+  }
+
+  .product-card {
+    width: 140px;
+    height: 90px;
+  }
+}

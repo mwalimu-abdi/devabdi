@@ -1,0 +1,151 @@
+/* ===== NAVBAR BASE ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background: #ffffff;
+  z-index: 1000;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* =========================
+   DESKTOP NAV (DEFAULT)
+   ========================= */
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links button {
+  position: relative;
+  font-size: 15px;
+  background: none;
+  border: none;
+  padding: 6px 0;
+  color: #000;
+  cursor: pointer;
+}
+
+/* 🔥 DESKTOP HOVER EFFECTS — MOUSE ONLY */
+@media (hover: hover) and (pointer: fine) {
+  .nav-links button::before,
+  .nav-links button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #ff7a18;
+    transition: width 0.3s ease;
+  }
+
+  .nav-links button::before {
+    top: -6px;
+  }
+
+  .nav-links button::after {
+    bottom: -6px;
+  }
+
+  .nav-links button:hover::before,
+  .nav-links button:hover::after {
+    width: 100%;
+  }
+
+  .nav-links button:hover {
+    color: #ff7a18;
+  }
+
+  .nav-links button.active::before,
+  .nav-links button.active::after {
+    width: 100%;
+  }
+
+  .nav-links button.active {
+    color: #ff7a18;
+  }
+}
+
+/* =========================
+   MOBILE CONTROLS
+   ========================= */
+.menu-btn {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* MOBILE DROPDOWN (FULL WIDTH, SMALL HEIGHT) */
+.mobile-dropdown {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px;
+  gap: 16px;
+  z-index: 999;
+}
+
+.mobile-dropdown button {
+  font-size: 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 10px 0;
+  color: #000;
+  cursor: pointer;
+}
+
+.mobile-dropdown button.active {
+  color: #ff7a18;
+}
+
+/* =========================
+   PHONE / TOUCH DEVICES
+   ========================= */
+@media (max-width: 768px) {
+  /* hide desktop menu */
+  .nav-links {
+    display: none;
+  }
+
+  /* show hamburger */
+  .menu-btn {
+    display: block;
+  }
+}
+
+/* 🚫 DISABLE HOVER EFFECTS ON TOUCH DEVICES */
+@media (hover: none) {
+  .nav-links button::before,
+  .nav-links button::after {
+    display: none !important;
+  }
+
+  .nav-links button:hover {
+    color: #000;
+  }
+}

@@ -1,0 +1,299 @@
+/* ===== SERVICES SECTION : VS CODE STYLE BACKGROUND ===== */
+.services {
+  position: relative;
+  padding: 70px 0;
+  background-color: #0f0f14;
+  overflow: hidden;
+}
+
+/* VS CODE CODE-LIKE BACKGROUND */
+.services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  animation: codeDrift 40s linear infinite;
+
+  /* layered code feel */
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.04) 0px,
+      rgba(255,255,255,0.04) 1px,
+      transparent 1px,
+      transparent 28px
+    ),
+    repeating-linear-gradient(
+      to right,
+      rgba(88,166,255,0.04) 0px,
+      rgba(88,166,255,0.04) 1px,
+      transparent 1px,
+      transparent 120px
+    );
+
+  opacity: 0.35; /* IMPORTANT */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* keep cards & text above */
+.services-container {
+  position: relative;
+  z-index: 1;
+}
+/* ===== SERVICES SECTION ===== */
+/* ===== SERVICES SECTION : CODE BACKGROUND ===== */
+.services {
+  position: relative;
+  padding: 70px 0;
+  background: #0f0f14;
+  overflow: hidden;
+}
+/* ===== CODE BACKGROUND TEXT ===== */
+.code-background {
+  position: absolute;
+  inset: 0;
+  padding: 60px;
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(88, 166, 255, 0.25); /* VS Code blue */
+  white-space: pre-wrap;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* keep content above code */
+.services-container {
+  position: relative;
+  z-index: 1;
+}
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 50px;
+}
+
+/* ===== LEFT INTRO ===== */
+.services-label {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #ff7a18;
+  font-weight: 500;
+}
+
+.services-title {
+  font-size: 38px;
+  font-weight: 700;
+  margin: 16px 0 20px;
+  color: #ffffff;
+}
+
+.services-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #cccccc;
+  margin-bottom: 14px;
+}
+
+/* ===== CARDS GRID ===== */
+.services-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+/* ===== CARD ===== */
+.service-card {
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  padding: 28px 24px;
+}
+
+/* ICON */
+.service-card svg {
+  font-size: 38px;
+  color: #000;
+  margin-bottom: 14px;
+}
+
+/* TITLE */
+.service-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+/* TITLE UNDERLINE */
+.service-card h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 70px;
+  height: 6px;
+  background: #2f5bff;
+}
+
+/* DESCRIPTION WITH LEFT LINE */
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+  .services-container {
+    grid-template-columns: 1fr;
+  }
+
+  .services-title {
+    font-size: 32px;
+  }
+}
+/* ===== CODE STYLE h3 TAGS ===== */
+/* === FIXED h3 VISUAL BLOCK (LEFT SIDE ONLY) === */
+.service-desc {
+  position: relative;
+  padding-left: 40px;   /* text moves right */
+  margin-top: 14px;
+}
+
+/* vertical line */
+.service-desc::before {
+  left: 10px;           /* line moves left */
+}
+
+/* vertical line EXACTLY between tags */
+.service-desc::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 22px;          /* just below <h3> */
+  height: 68px;       /* short, controlled */
+  width: 2px;
+  background: #bbb;
+}
+
+/* keep text centered */
+.service-desc p {
+  margin: 0;
+}
+
+/* visual <h3> tags */
+.code-tag {
+  position: absolute;
+  left: 0;
+  font-family: monospace;
+  font-size: 13px;
+  color: #999;
+  line-height: 1;
+}
+
+.code-tag.open {
+  top: 0;
+}
+
+.code-tag.close {
+  top: 88px;          /* directly below the line */
+}
+
+.service-desc p {
+  margin: 10px 0;
+}
+
+/* <h3> tags */
+.code-tag {
+  font-family: monospace;
+  font-size: 13px;
+  color: #999;
+  display: block;
+  line-height: 0.8;
+}
+
+.code-tag.open {
+  margin-bottom: 6px;
+}
+
+.code-tag.close {
+  margin-top: 6px;
+}
+
+
+/* description text */
+.service-desc p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* <h3> visual tags */
+.code-tag {
+  position: absolute;
+  left: 0;
+  font-family: monospace;
+  font-size: 13px;
+  color: #999;
+  line-height: 1;
+}
+
+/* opening tag */
+.code-tag.open {
+  top: 0;
+}
+
+/* closing tag */
+.code-tag.close {
+  bottom: 0;
+}
+
+/* description text */
+.service-desc p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* <h3> visual tags */
+.code-tag {
+  position: absolute;
+  left: 0;
+  font-family: monospace;
+  font-size: 13px;
+  color: #999;
+  line-height: 1;
+}
+
+.code-tag.open {
+  top: 0;
+}
+
+.code-tag.close {
+  bottom: 0;
+}
+/* faint code words */
+.services::after {
+  content: "const render = () => { return <Service /> }";
+  animation: codeDrift 60s linear infinite;
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  font-family: "Fira Code", monospace;
+  font-size: 18px;
+  color: rgba(88,166,255,0.15);
+  white-space: nowrap;
+  transform: rotate(-3deg);
+  pointer-events: none;
+  z-index: 0;
+}
+/* ===== VS CODE BACKGROUND ANIMATION ===== */
+@keyframes codeDrift {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-40px);
+  }
+}

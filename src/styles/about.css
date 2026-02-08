@@ -1,0 +1,133 @@
+.about {
+  padding: 120px 0;
+  background: white;
+}
+
+/* CONTAINER */
+.about-container {
+  width: 100%;
+  max-width: 1200px;        /* keeps desktop clean */
+  margin: 0 auto;
+  padding: 0 24px;          /* phone-safe padding */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* LEFT SIDE */
+.about-left {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* PROFILE IMAGE */
+.about-image-wrapper {
+  position: relative;
+  width: min(75vw, 360px);  /* 🔑 responsive size */
+  height: min(75vw, 360px);
+}
+
+.about-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* EXPERIENCE CIRCLE */
+.experience-circle {
+  position: absolute;
+  bottom: -40px;
+  right: 20px;
+  width: 160px;             /* slightly smaller for phones */
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.experience-circle svg {
+  width: 100%;
+  height: 100%;
+  animation: rotateCircle 12s linear infinite;
+}
+
+.experience-circle text {
+  font-size: 11px;
+  letter-spacing: 2px;
+  fill: #000;
+}
+
+/* STATIC NUMBER */
+.experience-number {
+  position: absolute;
+  font-size: 40px;
+  font-weight: 700;
+  color: #000;
+}
+
+/* ROTATION (ANTICLOCKWISE) */
+@keyframes rotateCircle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* RIGHT SIDE */
+.about-right {
+  max-width: 520px;
+}
+
+.about-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ff7a18;
+  letter-spacing: 2px;
+}
+
+.about-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 16px 0 24px;
+  color: #000;
+}
+
+.about-right p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+/* 📱 MOBILE FIXES */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image-wrapper {
+    width: min(80vw, 280px);
+    height: min(80vw, 280px);
+  }
+
+  .experience-circle {
+    bottom: -45px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .about-title {
+    font-size: 34px;
+  }
+
+  .about-right {
+    max-width: 100%;
+  }
+}

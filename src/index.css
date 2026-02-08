@@ -1,0 +1,50 @@
+/* ===== GLOBAL RESET (SAFE) ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  background: #ffffff;
+  color: #000;
+}
+
+/* OFFSET FOR FIXED NAVBAR */
+body {
+  padding-top: 70px;
+}
+
+/* REMOVE DEFAULT VITE STYLES */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* HEADINGS SAFETY */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: inherit;
+}
+
+/* MOBILE SAFETY */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+}

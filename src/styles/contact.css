@@ -1,0 +1,87 @@
+.contact {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+/* CONTAINER */
+.contact-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;            /* phone-safe padding */
+  text-align: left;
+}
+
+/* LABEL */
+.contact-label {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #ff7a18;
+}
+
+/* TITLE */
+.contact-title {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #000;
+  margin: 16px 0 60px;
+}
+
+/* ITEMS ROW */
+.contact-items {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* SINGLE ITEM */
+.contact-item {
+  flex: 1;
+  text-align: center;
+}
+
+/* ICON CIRCLE */
+.contact-icon {
+  width: 70px;
+  height: 70px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  color: #ff7a18;
+  font-size: 26px;
+}
+
+/* TEXT */
+.contact-item h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 6px;
+}
+
+.contact-item p {
+  font-size: 15px;
+  color: #666;
+}
+
+/* 📱 MOBILE FIXES */
+@media (max-width: 768px) {
+  .contact-container {
+    text-align: center;
+  }
+
+  .contact-title {
+    font-size: 32px;
+  }
+
+  .contact-items {
+    flex-direction: column;
+    gap: 36px;
+  }
+}
